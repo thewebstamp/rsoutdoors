@@ -10,6 +10,12 @@ const images: SiteImages = {
         alt: "R & S Outdoors logo",
     },
     favicon: "/favicon.ico",
+    // Fallback social-preview image. Ideally 1200x630px — used by any page
+    // without a more specific photo of its own (see per-page metadata).
+    og: {
+        src: "/images/rsob.jpg",
+        alt: "R & S Outdoors — Virginia Beach landscaping and outdoor property services",
+    },
 
     home: {
         heroImage: {

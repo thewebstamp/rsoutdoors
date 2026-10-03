@@ -54,7 +54,19 @@ export interface FaqItem {
     answer: string;
 }
 
+export interface SeoEntry {
+    title: string;
+    description: string;
+}
+
 export interface SiteContent {
+    seo: {
+        home: SeoEntry;
+        servicesOverview: SeoEntry;
+        about: SeoEntry;
+        gallery: SeoEntry;
+        contact: SeoEntry;
+    };
     site: {
         businessName: string;
         tagline: string;
@@ -219,6 +231,9 @@ export interface GalleryImage {
 export interface SiteImages {
     logo: ImageAsset;
     favicon: string;
+    // Fallback social-preview image (ideally 1200x630) for any page that
+    // doesn't have a more specific hero photo to use instead.
+    og: ImageAsset;
     home: {
         heroImage: ImageAsset;
         workBreakImage: ImageAsset;

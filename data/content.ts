@@ -6,6 +6,38 @@ import type { SiteContent } from "./types";
 
 const content: SiteContent = {
     // --------------------------------------------------------------------
+    // SEO — titles/descriptions for social previews and search results.
+    // Keep descriptions under ~155 characters.
+    // --------------------------------------------------------------------
+    seo: {
+        home: {
+            title: "R & S Outdoors | Virginia Beach Landscaping & Property Services",
+            description:
+                "Drainage, tree & stump removal, land clearing, fall cleanup, and snow removal for Virginia Beach homeowners. Free, honest estimates.",
+        },
+        servicesOverview: {
+            title: "Our Services | R & S Outdoors",
+            description:
+                "Drainage & grading, tree & stump removal, land clearing, fall cleanup, power raking, and snow removal — all from one trusted Virginia Beach team.",
+        },
+        about: {
+            title: "About Us | R & S Outdoors",
+            description:
+                "A Virginia Beach outdoor property team built on hard work, real equipment, and a neighbor-first attitude toward every job.",
+        },
+        gallery: {
+            title: "Project Gallery | R & S Outdoors",
+            description:
+                "See real drainage fixes, tree removals, land clearing, and seasonal cleanups completed around Virginia Beach, VA.",
+        },
+        contact: {
+            title: "Contact Us | R & S Outdoors",
+            description:
+                "Call, text, or email R & S Outdoors for a free, honest estimate on your Virginia Beach property.",
+        },
+    },
+
+    // --------------------------------------------------------------------
     // SITE-WIDE
     // --------------------------------------------------------------------
     site: {
