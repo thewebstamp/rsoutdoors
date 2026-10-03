@@ -1,0 +1,198 @@
+/* ---------- Filter tabs ---------- */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: var(--space-lg);
+}
+
+.filterBtn {
+    border: 1.5px solid rgba(27, 58, 43, 0.2);
+    background: transparent;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: 999px;
+    transition: background var(--transition-base), color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.filterBtn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filterActive {
+    background: var(--color-forest);
+    border-color: var(--color-forest);
+    color: var(--color-cream);
+}
+
+.filterActive:hover {
+    color: var(--color-cream);
+}
+
+/* ---------- Masonry grid ---------- */
+
+.masonry {
+    column-count: 1;
+    column-gap: 1.5rem;
+}
+
+.tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tile:hover .image {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(18, 39, 28, 0);
+    color: var(--color-cream);
+    opacity: 0;
+    transition: background var(--transition-base), opacity var(--transition-base);
+}
+
+.tile:hover .overlay {
+    background: rgba(18, 39, 28, 0.55);
+    opacity: 1;
+}
+
+.overlayLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1000px) {
+    .masonry {
+        column-count: 3;
+    }
+}
+
+/* ---------- Lightbox ---------- */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(13, 30, 21, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+.lightboxImageWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 64rem;
+    max-height: 100%;
+}
+
+.lightboxImage {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.lightboxCaption {
+    margin-top: 1rem;
+    color: var(--color-cream);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.closeBtn {
+    position: absolute;
+    top: clamp(1rem, 3vw, 1.75rem);
+    right: clamp(1rem, 3vw, 1.75rem);
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: none;
+    background: rgba(247, 243, 234, 0.1);
+    color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeBtn:hover {
+    background: rgba(247, 243, 234, 0.18);
+}
+
+.navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    border: none;
+    background: rgba(247, 243, 234, 0.1);
+    color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBtn:hover {
+    background: rgba(247, 243, 234, 0.18);
+}
+
+.navPrev {
+    left: clamp(0.75rem, 3vw, 2rem);
+}
+
+.navNext {
+    right: clamp(0.75rem, 3vw, 2rem);
+}
+
+@media (max-width: 600px) {
+    .navBtn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}

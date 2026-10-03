@@ -1,0 +1,100 @@
+.section {
+    background: var(--color-bg-alt);
+}
+
+.header {
+    max-width: 34rem;
+    margin: 0 auto var(--space-lg);
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-6px);
+}
+
+.topRule {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 0 0 999px 999px;
+}
+
+.iconWrap {
+    width: 3.75rem;
+    height: 3.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 999px;
+    background: linear-gradient(150deg, var(--color-gold-soft), var(--color-gold));
+    color: var(--color-forest-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px -8px rgba(27, 58, 43, 0.4);
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.6rem;
+}
+
+.value {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.cardLink {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.card:hover .cardLink {
+    gap: 0.75rem;
+    color: var(--color-accent);
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr;
+        max-width: 26rem;
+        margin: 0 auto;
+    }
+}

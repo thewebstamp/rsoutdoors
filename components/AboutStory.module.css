@@ -1,0 +1,51 @@
+.section {
+    background: var(--color-bg-alt);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.imageWrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.textBlock {
+    max-width: 34rem;
+}
+
+.story {
+    margin-top: 1.25rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
+    line-height: 1.6;
+    color: var(--color-primary-dark);
+}
+
+.dropCap {
+    float: left;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    padding: 0.1rem 0.5rem 0 0;
+    color: var(--color-accent);
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 4rem;
+    }
+}

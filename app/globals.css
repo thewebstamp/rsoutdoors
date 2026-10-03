@@ -1,26 +1,203 @@
-@import "tailwindcss";
+/* ============================================================================
+   globals.css
+   ============================================================================ */
+
+/* ============================================================================
+   globals.css
+   All design-system values (colors, fonts, spacing) live here as CSS custom
+   properties. To re-skin this site for a different business, change ONLY
+   the values inside :root — no component code should need to change.
+
+   NOTE: Fraunces and Inter are loaded via next/font/google in app/layout.tsx,
+   which exposes them as --font-fraunces and --font-inter on the <html>
+   element. This file just references those variables — do not add a
+   @import for the fonts here.
+   ============================================================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Color system --- */
+  --color-forest: #1b3a2b;
+  --color-forest-dark: #12271c;
+  --color-cream: #f7f3ea;
+  --color-cream-soft: #efe9db;
+  --color-charcoal: #1c1c1a;
+  --color-gold: #c9974a;
+  --color-gold-soft: #e3c891;
+  --color-white: #ffffff;
+
+  --color-bg: var(--color-cream);
+  --color-bg-alt: var(--color-cream-soft);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-charcoal);
+  --color-text-muted: #55564f;
+  --color-text-inverse: var(--color-cream);
+  --color-accent: var(--color-gold);
+  --color-primary: var(--color-forest);
+  --color-primary-dark: var(--color-forest-dark);
+
+  /* --- Typography --- */
+  --font-heading: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Mobile-first fluid type scale — never dips below very readable minimums */
+  --fs-body: clamp(1.05rem, 0.98rem + 0.3vw, 1.15rem);
+  --fs-small: clamp(0.95rem, 0.9rem + 0.2vw, 1rem);
+  --fs-h1: clamp(2.6rem, 2rem + 3.5vw, 4.75rem);
+  --fs-h2: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  --fs-h3: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+  --fs-eyebrow: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.6;
+
+  /* --- Spacing --- */
+  --space-section: clamp(4rem, 4rem + 5vw, 8rem);
+  --space-lg: 2.5rem;
+  --space-md: 1.5rem;
+  --space-sm: 1rem;
+  --max-width: 1240px;
+
+  /* --- Effects --- */
+  --radius-lg: 1.25rem;
+  --radius-md: 0.75rem;
+  --shadow-soft: 0 20px 60px -20px rgba(27, 58, 43, 0.25);
+  --shadow-card: 0 12px 30px -12px rgba(27, 58, 43, 0.18);
+  --transition-base: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-primary-dark);
+  line-height: var(--lh-tight);
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.section {
+  padding: var(--space-section) 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-forest-dark);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-on-dark.btn-secondary {
+  color: var(--color-cream);
+}
+
+.btn-on-dark.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-dark {
+  background: var(--color-forest);
+  color: var(--color-cream);
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  background: var(--color-forest-dark);
 }

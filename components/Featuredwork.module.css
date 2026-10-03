@@ -1,0 +1,115 @@
+.header {
+    max-width: 40rem;
+    margin: 0 auto var(--space-lg);
+    text-align: center;
+}
+
+.subheading {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+}
+
+.wall {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: calc(var(--space-lg) + 1rem);
+    padding: 0 0.5rem;
+}
+
+.frame {
+    position: relative;
+    background: var(--color-surface);
+    padding: 0.6rem 0.6rem 0;
+    border-radius: 0.6rem;
+    box-shadow: var(--shadow-card);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    cursor: pointer;
+}
+
+.frame:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.frame:nth-child(1) {
+    --tilt: -2.5deg;
+}
+
+.frame:nth-child(2) {
+    --tilt: 1.75deg;
+}
+
+.frame:nth-child(3) {
+    --tilt: -1.75deg;
+}
+
+.frame:nth-child(4) {
+    --tilt: 2.5deg;
+}
+
+.frame:nth-child(2n) {
+    margin-top: 1.5rem;
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+
+.frame::after {
+    content: "";
+    display: block;
+    height: 1.6rem;
+}
+
+.ring {
+    position: absolute;
+    inset: 0.6rem 0.6rem 1.6rem;
+    border-radius: 0.35rem 0.35rem 0 0;
+    border: 2px solid transparent;
+    transition: border-color var(--transition-base);
+    pointer-events: none;
+}
+
+.frame:hover .ring {
+    border-color: var(--color-accent);
+}
+
+.footerCta {
+    margin-top: calc(var(--space-lg) + 1.5rem);
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .wall {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2.5rem;
+    }
+
+    .frame:nth-child(2n) {
+        margin-top: 0;
+    }
+
+    .frame:nth-child(-n + 2) {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .wall {
+        grid-template-columns: 1fr;
+        max-width: 20rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .frame:nth-child(n) {
+        margin-top: 0;
+    }
+}

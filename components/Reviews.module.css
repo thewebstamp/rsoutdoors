@@ -1,0 +1,153 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+}
+
+.watermark {
+  position: absolute;
+  top: -2rem;
+  left: clamp(-2rem, 2vw, 2rem);
+  width: clamp(10rem, 16vw, 16rem);
+  height: clamp(10rem, 16vw, 16rem);
+  color: var(--color-forest);
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+}
+
+.header {
+  max-width: 40rem;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+
+.subheading {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Bento layout ---------- */
+
+.bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: var(--space-lg);
+}
+
+.featured {
+  position: relative;
+  background: linear-gradient(160deg, var(--color-forest), var(--color-forest-dark));
+  color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.5rem, 4vw, 3.5rem);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.featuredIcon {
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.featuredQuote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);
+  font-style: italic;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.stack {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+  border-left: 3px solid var(--color-accent);
+}
+
+.quoteText {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-primary-dark);
+}
+
+/* ---------- Shared meta ---------- */
+
+.meta {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: var(--fs-small);
+}
+
+.featured .meta {
+  color: var(--color-cream);
+}
+
+.card .meta {
+  color: var(--color-primary-dark);
+}
+
+.divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.location {
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.serviceTag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.featured .serviceTag {
+  color: var(--color-forest-dark);
+  background: var(--color-accent);
+}
+
+.card .serviceTag {
+  color: var(--color-forest);
+  background: var(--color-bg-alt);
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 900px) {
+  .bento {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: stretch;
+  }
+
+  .stack {
+    grid-template-columns: 1fr;
+  }
+}

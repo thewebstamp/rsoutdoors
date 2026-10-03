@@ -1,0 +1,164 @@
+.section {
+    position: relative;
+    background: linear-gradient(150deg, var(--color-cream) 0%, var(--color-cream-soft) 45%, #f0e4cc 100%);
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: -12rem;
+    right: -10rem;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(27, 58, 43, 0.07), transparent 70%);
+    pointer-events: none;
+}
+
+.header {
+    position: relative;
+    max-width: 40rem;
+    margin: 0 auto var(--space-lg);
+    text-align: center;
+}
+
+.subheading {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+}
+
+.grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: calc(var(--space-lg) + 1.5rem);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-cream) 130%);
+    border-radius: var(--radius-lg);
+    overflow: visible;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-6px);
+}
+
+/* ---------- Image ---------- */
+
+.imageWrap {
+    position: relative;
+    aspect-ratio: 16 / 11;
+}
+
+.imageInner {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--color-bg-alt);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .image {
+    transform: scale(1.07);
+}
+
+.imageShade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18, 39, 28, 0.3), transparent 55%);
+}
+
+/* Signature badge: straddles the image and the card body via percentage
+   positioning, so it lines up correctly at any card width. */
+.iconWrap {
+    position: absolute;
+    left: 1.5rem;
+    top: 100%;
+    transform: translateY(-50%);
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 999px;
+    background: linear-gradient(150deg, var(--color-gold-soft), var(--color-gold));
+    color: var(--color-forest-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px -8px rgba(27, 58, 43, 0.4);
+    border: 4px solid var(--color-surface);
+    z-index: 2;
+}
+
+/* ---------- Body ---------- */
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 2.25rem 1.75rem 1.9rem;
+}
+
+.cardTitle {
+    margin-bottom: 0.5rem;
+}
+
+.cardText {
+    color: var(--color-text-muted);
+    flex-grow: 1;
+}
+
+.cardLink {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.card:hover .cardLink {
+    gap: 0.75rem;
+    color: var(--color-accent);
+}
+
+.footerCta {
+    margin-top: calc(var(--space-lg) + 0.5rem);
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Offset the middle column on wide screens for a less rigid grid */
+@media (min-width: 901px) {
+    .card:nth-child(3n + 2) {
+        margin-top: 1.75rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
